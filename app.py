@@ -7,10 +7,10 @@ from langchain.prompts.prompt import PromptTemplate
 from langchain.chains import LLMChain
 from langchain import hub
 import sys
-load_dotenv()
-
 import warnings
 warnings.filterwarnings("ignore")
+
+load_dotenv()
 
 def helpUsage():
     print("Specify Params: <name and employer name>")
@@ -24,16 +24,10 @@ def driver_function(name):
         1. A short summary
         2. two interesting facts about them
         """
-    summary_prompt_template = PromptTemplate(
-            input_variables=["information"], template=summary_template
-        )
-
+    summary_prompt_template = PromptTemplate(input_variables=["information"], template=summary_template)
     llm = ChatOpenAI(temperature=0, model_name="gpt-3.5-turbo")
-
     chain = LLMChain(llm=llm, prompt=summary_prompt_template)
-
     res = chain.invoke(input={"information": linkedIn_data})
-
     return res['text']
 if __name__ == '__main__':
     args = sys.argv
