@@ -5,12 +5,16 @@ from linkedIn.linkedin import get_li_data
 from langchain_openai import ChatOpenAI
 from langchain.prompts.prompt import PromptTemplate
 from langchain.chains import LLMChain
-
 from langchain import hub
+import sys
 load_dotenv()
 
 import warnings
 warnings.filterwarnings("ignore")
+
+def helpUsage():
+    print("Specify Params: <name and employer name>")
+    print("Specify Param: --help for usage")
 
 def driver_function(name):
     linkedIn_url = get_li_url(name)
@@ -32,7 +36,16 @@ def driver_function(name):
 
     return res['text']
 if __name__ == '__main__':
-    summary=driver_function("satyajit naik")
-    print(summary)
+    args = sys.argv
+    name = args[1]
+    print(name)
+    if args[1] == '--help':
+        helpUsage()
+    elif len(args) == 2 :
+        summary=driver_function(name)
+        print(summary)
+    else:
+        helpUsage()
+    
 
 
