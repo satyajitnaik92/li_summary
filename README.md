@@ -10,3 +10,4 @@ Get [OPENAI_API_KEY][1], [TAVILY_API_KEY][2] AND [PROXUCURL_API_KEY][3].
 [1]: https://help.openai.com/en/articles/4936850-where-do-i-find-my-openai-api-key            "OPENAI_API_KEY"  
 [2]: https://app.tavily.com/sign-in               "TAVILY_API_KEY"  
 [3]: https://nubela.co/proxycurl/linkedin      "PROXUCURL_API_KEY"  
+To get the results run "pipenv run app.py <name_employer_name>"
