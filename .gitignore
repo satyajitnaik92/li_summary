@@ -1,5 +1,4 @@
 .env
 .gitignore
-Pipfile
 Pipfile.lock
 __pycache__
